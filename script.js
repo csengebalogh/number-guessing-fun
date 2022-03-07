@@ -28,22 +28,25 @@ rl.prompt()
 // });
 
 
-rl.on('line', (ans) => {
-    // var generated = genNumber()
-
-    cl("Your guess:", ans)
-    cl("Generated:", generated)
-
-    if (generated == ans) {
-        cl("match")
-        rl.close()
-    } else {
-        cl("no match")
-        newGuess()
-    }
 
 
-})
+for (var i = 0; i<3; i++) {
+    rl.on('line', (ans) => {
+        // var generated = genNumber()
+    
+        cl("Your guess:", ans)
+        cl("Generated:", generated)
+    
+        if (generated == ans) {
+            cl("match")
+            rl.close()
+        } else {
+            cl("no match")
+            newGuess()
+        }
+    
+    })
+}
 
 //kell egy ciklus  csak nemtudom hova 
 
