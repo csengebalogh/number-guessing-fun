@@ -15,24 +15,51 @@ rl.prompt()
 
 var tries = 3;
 
+function secondGuess() {
+    rl.on('line', ans => {
+        if (ans == generated) {
+            cl("masodikra eltalaltad")
+            rl.close()
+        } 
+    })
+}
 
 rl.on('line', ans => {
-    let answer = global.ans
+    cl(ans, generated)
+
+    if (ans == generated) {
+        cl("match")
+        rl.close()
+    } else if (ans < generated) {
+        cl("ennel nagyobbra gondolj")
+        tries--
+        cl("probak szama", tries)
+        secondGuess()
+    } else { // ans > generated
+        cl("ennel kisebbre gondolj")
+        tries--
+        cl("probak szama", tries)
+        secondGuess()
+    }
+
+    rl.close()
+    // while (tries != 0) {
+
+    //     switch(ans) {
+    //         case Number(ans) == generated:
+    //             cl("match")
+    //             tries--
+    //             break;
+    //         case Number(ans) < generated:
+    //             cl("ennel kisebb")
+    //             tries--
+    //             break
+    //         case Number(ans) > generated:
+    //             cl("ennel nagyobb  ")
+    //             tries--
+    //             break
+    //     }
+    // }
+    
 })
 
- // ASYNC AWAIT 
-
-while (tries != 0) {
-
-    switch(answer) {
-        case answer == generated:
-            cl("match")
-            break;
-        case answer < generated:
-            cl("ennel kisebb")
-            break
-        case answer > generated:
-            cl("ennel nagyobb  ")
-            break
-    }
-}
