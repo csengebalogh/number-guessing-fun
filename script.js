@@ -13,7 +13,7 @@ var generated = (Math.round(Math.random() * 10))
 rl.setPrompt("Think about an integer from 0 to 10 > ")
 rl.prompt()
 
-var tries = 3
+var tries = 3;
 
 
 rl.on('line', ans => {
